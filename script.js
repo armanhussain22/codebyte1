@@ -1,21 +1,34 @@
-let string = "";
-let buttons = document.querySelectorAll('.button,.buttonone,.buttontwo,.buttonthree,.buttonfour,.buttonfive');
-Array.from(buttons).forEach((button,buttonone,buttontwo,buttonthree,buttonfour,buttonfive) => {
-  button.addEventListener('click', (e) => {
-    if (e.target.innerHTML == '=') {
-      string = eval(string);
-      document.querySelector('input').value = string;
-      
-    }
-    else if (e.target.innerHTML == 'C') {
-      string = "";
-      document.querySelector('input').value = string;
-      
-    }
-    else {
-      console.log(e.target)
-      string = string + e.target.innerHTML;
-      document.querySelector('input').value = string;
-    }
-  })
-})
+const taskInput = document.getElementById('taskInput');
+const taskList = document.getElementById('taskList');
+const completedList = document.getElementById('completedList');
+
+function addTask() {
+    const taskText = taskInput.value;
+    if (taskText.trim() === '') return;
+
+    const li = document.createElement('li');
+    li.textContent = taskText;
+
+    const completeButton = document.createElement('button');
+    completeButton.textContent = 'Complete';
+    completeButton.onclick = () => completeTask(li);
+
+    li.appendChild(completeButton);
+    taskList.appendChild(li);
+
+    taskInput.value = '';
+}
+
+function completeTask(taskItem) {
+    taskList.removeChild(taskItem);
+    const completedTask = document.createElement('li');
+    completedTask.textContent = taskItem.textContent + ' - Completed on ' + getCurrentDateTime();
+    completedList.appendChild(completedTask);
+}
+
+function getCurrentDateTime() {
+    const now = new Date();
+    const date = now.toLocaleDateString();
+    const time = now.toLocaleTimeString();
+    return `${date} at ${time}`;
+}

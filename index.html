@@ -1,51 +1,22 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width">
-  <title>Calculator</title>
-  <link href="style.css" rel="stylesheet" type="text/css" />
- </head>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js"></script>
+    <title>To-pDo App</title>
+</head>
 <body>
-  <h1>IT'S Me A Calculator !..</h1>
-  <div class="container">
-    <div class="row">
-      <input class="input" type="text" placeholder="0"/>
+    <div class="container">
+        <h1>To-pDo App</h1>
+        <div>
+            <input type="text" id="taskInput" placeholder="What's Your Task">
+            <button onclick="addTask()">Add Task</button>
+        </div>
+        <ul id="taskList"></ul>
+        <h2>Completed Tasks</h2>
+        <ul id="completedList"></ul>
     </div>
-    <div class="row">
-      <button class="button">C</button >
-      <button class="button">%</button>
-      <button class="button">M+</button>
-      <button class="buttonone">M-</button>
-    </div>
-    <div class="row">
-      <button class="button">7</button>
-      <button class="button">8</button>
-      <button class="button">9</button>
-      <button class="buttontwo">*</button>
-  </div>
-    <div class="row">
-      <button class="button">4</button>
-      <button class="button">5</button>
-      <button class="button">6</button>
-      <button class="buttonthree">-</button>
-    </div>
-    <div class="row">
-      <button class="button">1</button>
-      <button class="button">2</button>
-      <button class="button">3</button>
-      <button class="buttonfour">+</button>
-    </div>
-    <div class="row">
-      <button class="button">00</button>
-      <button class="button">/</button>
-      <button class="button">.</button>
-      <button class="buttonfive">=</button>
-    </div>
-  </div>
-  <script src="script.js"></script>
 </body>
-
 </html>
